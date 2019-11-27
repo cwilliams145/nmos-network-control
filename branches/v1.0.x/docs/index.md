@@ -5,7 +5,12 @@
 ## Documentation for branch v1.0.x
 
 - [Overview](1.0._Overview.md)
-- [Endpoint](2.0._Endpoint.md)
-- [Network Flow](3.0._Network_Flow.md)
-- [Network Device](4.0._Network_Device.md)
-- [Network Links](5.0._Network_Links.md)
+- [APIs](2.0._APIs.md)
+  - [Client Side Implementation](2.1._APIs_-_Client_Side_Implementation.md)
+  - [Server Side Implementation](2.2._APIs_-_Server_Side_Implementation.md)
+  - [Query Parameters](2.3._APIs_-_Query_Parameters.md)
+- [Data Model](3.0._Data_Model.md)
+  - [Endpoint](3.1._Data_Model_-_Endpoint.md)
+  - [Network Flow](3.2._Data_Model_-_Network_Flow.md)
+  - [Network Device](3.3._Data_Model_-_Network_Device.md)
+  - [Network Link](3.4._Data_Model_-_Network_Link.md)

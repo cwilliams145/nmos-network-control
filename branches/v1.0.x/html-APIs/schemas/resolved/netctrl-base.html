@@ -1,0 +1,51 @@
+---
+layout: default
+title: Schema netctrl-base.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Schema netctrl-base.json</h2>
+<p>
+    <a href="../../schemas/with-refs/netctrl-base.html">Show referenced schemas with $ref</a>
+</p>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "Describes the Network Control API base resource",
+    "items": {
+        "enum": [
+            "network-devices/",
+            "endpoints/",
+            "network-links/",
+            "network-flows/"
+        ],
+        "maxItems": 4,
+        "minItems": 4,
+        "type": "string",
+        "uniqueItems": true
+    },
+    "title": "Network Control API base resource",
+    "type": "array"
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ],
+        sortPropertiesBy: function(a, b) {
+           if (a === "title") { return -1; }
+           if (b === "title") { return 1; }
+           if (a === "description") { return -1; }
+           if (b === "description") { return 1; }
+           return a > b;
+        }
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>
