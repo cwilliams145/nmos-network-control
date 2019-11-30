@@ -13,9 +13,9 @@
 
 ## APIs for release/tag v1.0
 
-- [NetworkControlAPI](html-APIs/NetworkControlAPI.html)
+- [NetworkControlAPI](APIs/NetworkControlAPI.html)
 
-### [JSON Schemas](html-APIs/schemas/)
+### [JSON Schemas](APIs/schemas/)
 
 
 ### [Examples](examples/)

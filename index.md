@@ -53,9 +53,9 @@ Once AMWA has approved a Specification, its documentation and API links will be 
 
 ## APIs for release/tag v1.0
 
-- [NetworkControlAPI](tags/v1.0/html-APIs/NetworkControlAPI.html)
+- [NetworkControlAPI](tags/v1.0/APIs/NetworkControlAPI.html)
 
-### [JSON Schemas](tags/v1.0/html-APIs/schemas/)
+### [JSON Schemas](tags/v1.0/APIs/schemas/)
 
 
 ### [Examples](tags/v1.0/examples/)
