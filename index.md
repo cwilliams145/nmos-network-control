@@ -2,7 +2,7 @@
 
 # {{ site.github.project_tagline }}
 
-[![Build Status](https://travis-ci.com/AMWA-TV/nmos-network-control.svg)](https://travis-ci.com/AMWA-TV/nmos-network-control)
+[![Build Status](https://travis-ci.com/AMWA-TV/nmos-network-control.svg?branch=v1.0.x)](https://travis-ci.com/AMWA-TV/nmos-network-control)
 
 
 
