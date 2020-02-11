@@ -22,7 +22,7 @@ const formatter = new JSONFormatter.default(
         "properties": {
             "chassis_id": {
                 "description": "MAC address of the network device.",
-                "pattern": "^([0-9a-f]{2}[-]){5}([0-9a-f]{2})$",
+                "pattern": "^([0-9a-f]{2}-){5}([0-9a-f]{2})$",
                 "type": "string"
             },
             "id": {

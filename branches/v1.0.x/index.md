@@ -10,6 +10,7 @@
   - [Client Side Implementation](docs/2.1._APIs_-_Client_Side_Implementation.md)
   - [Server Side Implementation](docs/2.2._APIs_-_Server_Side_Implementation.md)
   - [Query Parameters](docs/2.3._APIs_-_Query_Parameters.md)
+  - [Discovery](docs/2.4._APIs_-_Discovery.md)
 - [Data Model](docs/3.0._Data_Model.md)
   - [Endpoint](docs/3.1._Data_Model_-_Endpoint.md)
   - [Network Flow](docs/3.2._Data_Model_-_Network_Flow.md)
