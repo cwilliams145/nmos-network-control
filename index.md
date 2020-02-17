@@ -2,8 +2,9 @@
 
 # {{ site.github.project_tagline }}
 
-[![Build Status](https://travis-ci.com/AMWA-TV/nmos-network-control.svg?branch=v1.0.x)](https://travis-ci.com/AMWA-TV/nmos-network-control)
-
+| Repository | Default Branch | Lint (default) | Render (all) |
+| --- | --- | --- | --- |
+| [nmos-network-control](https://github.com/AMWA-TV/nmos-network-control) | v1.0.x | <a href="https://travis-ci.com/AMWA-TV/nmos-network-control?branch=v1.0.x"><img src="https://travis-ci.com/AMWA-TV/nmos-network-control.svg?branch=v1.0.x" width="100"/></a> | <a href="https://travis-ci.com/AMWA-TV/nmos-network-control?branch=gh-pages"><img src="https://travis-ci.com/AMWA-TV/nmos-network-control.svg?branch=gh-pages" width="100"/></a> |
 
 
 ---
