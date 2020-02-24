@@ -24,13 +24,34 @@ const formatter = new JSONFormatter.default(
                 "description": "Peer network device (switch) details. This cannot be an endpoint.",
                 "properties": {
                     "chassis_id": {
-                        "description": "MAC address for the peer network device.",
-                        "pattern": "^([0-9a-f]{2}-){5}([0-9a-f]{2})$",
-                        "type": "string"
+                        "anyOf": [
+                            {
+                                "description": "When the Chassis ID is a MAC address, use this format.",
+                                "pattern": "^([0-9a-f]{2}-){5}([0-9a-f]{2})$",
+                                "type": "string"
+                            },
+                            {
+                                "description": "When the Chassis ID is anything other than a MAC address, a freeform string may be used.",
+                                "pattern": "^.+$",
+                                "type": "string"
+                            }
+                        ],
+                        "description": "Matches the chassis_id of the peer network device. Where LLDP is implemented on the network device interfaces, the LLDP Chassis ID should match this value."
                     },
                     "port_id": {
-                        "description": "The ifAlias of the peer network device the endpoint is connected to.",
-                        "type": "string"
+                        "anyOf": [
+                            {
+                                "description": "When the Port ID is a MAC address, use this format.",
+                                "pattern": "^([0-9a-f]{2}-){5}([0-9a-f]{2})$",
+                                "type": "string"
+                            },
+                            {
+                                "description": "When the Port ID is anything other than a MAC address, a freeform string may be used.",
+                                "pattern": "^.+$",
+                                "type": "string"
+                            }
+                        ],
+                        "description": "Matches the port_id of the interface on the peer network device to which the endpoint is connected. Where LLDP is implemented on the network device interfaces, the LLDP Port ID should match this value."
                     }
                 },
                 "required": [
@@ -85,7 +106,7 @@ const formatter = new JSONFormatter.default(
                 "type": "string"
             },
             "port_id": {
-                "description": "MAC address of the endpoint.",
+                "description": "MAC address of the endpoint. Where LLDP is implemented on the endpoint, the LLDP Port ID should match this value. Matches to IS-04 nodes' interfaces.port_id and should be same.",
                 "pattern": "^([0-9a-f]{2}-){5}([0-9a-f]{2})$",
                 "type": "string"
             },
@@ -104,8 +125,7 @@ const formatter = new JSONFormatter.default(
             "id",
             "chassis_id",
             "port_id",
-            "ip_address",
-            "attached_network_device"
+            "ip_address"
         ],
         "type": "object"
     },

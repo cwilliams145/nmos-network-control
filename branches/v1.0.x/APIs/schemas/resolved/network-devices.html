@@ -21,9 +21,19 @@ const formatter = new JSONFormatter.default(
         "description": "Describes a network device or switch.",
         "properties": {
             "chassis_id": {
-                "description": "MAC address of the network device.",
-                "pattern": "^([0-9a-f]{2}-){5}([0-9a-f]{2})$",
-                "type": "string"
+                "anyOf": [
+                    {
+                        "description": "When the Chassis ID is a MAC address, use this format.",
+                        "pattern": "^([0-9a-f]{2}-){5}([0-9a-f]{2})$",
+                        "type": "string"
+                    },
+                    {
+                        "description": "When the Chassis ID is anything other than a MAC address, a freeform string may be used.",
+                        "pattern": "^.+$",
+                        "type": "string"
+                    }
+                ],
+                "description": "A persistent identifier of the network device, often the MAC address. Where LLDP is implemented on the network device interfaces, the LLDP Chassis ID should match this value."
             },
             "id": {
                 "description": "Globally unique identifier for the network device",
@@ -52,8 +62,19 @@ const formatter = new JSONFormatter.default(
                             ]
                         },
                         "port_id": {
-                            "description": "The ifAlias of the network device.",
-                            "type": "string"
+                            "anyOf": [
+                                {
+                                    "description": "When the Port ID is a MAC address, use this format.",
+                                    "pattern": "^([0-9a-f]{2}-){5}([0-9a-f]{2})$",
+                                    "type": "string"
+                                },
+                                {
+                                    "description": "When the Port ID is anything other than a MAC address, a freeform string may be used.",
+                                    "pattern": "^.+$",
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "A persistent identifier of the interface on the network device, often the ifAlias. Where LLDP is implemented on the network device interfaces, the LLDP Port ID should match this value."
                         },
                         "speed": {
                             "description": "The reported active speed of the interface.",
