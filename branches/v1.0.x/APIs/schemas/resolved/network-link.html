@@ -20,8 +20,6 @@ const formatter = new JSONFormatter.default(
         "peers": {
             "description": "List of peer devices in a link. Peer can be a network device (switch) or an endpoint. There must be exactly two peers in the list.",
             "items": {
-                "maxItems": 2,
-                "minItems": 2,
                 "properties": {
                     "device_id": {
                         "description": "Globally unique identifier of a network device or an endpoint.",
@@ -52,10 +50,12 @@ const formatter = new JSONFormatter.default(
                     "device_id",
                     "port_id"
                 ],
-                "type": "object",
-                "uniqueItems": true
+                "type": "object"
             },
-            "type": "array"
+            "maxItems": 2,
+            "minItems": 2,
+            "type": "array",
+            "uniqueItems": true
         },
         "speed": {
             "description": "Speed of the link, formatted as a number followed by kbit/s, Mbit/s, Gbit/s. NB: Values should be formatted with no fraction component if possible, using the largest unit that allows that.",
