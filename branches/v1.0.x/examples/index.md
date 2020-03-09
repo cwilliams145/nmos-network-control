@@ -16,4 +16,5 @@
 - [netctrl-network-flow-put](netctrl-network-flow-put.html)
 - [netctrl-network-flow-receiver-post](netctrl-network-flow-receiver-post.html)
 - [netctrl-network-flows-get-200](netctrl-network-flows-get-200.html)
+- [netctrl-network-link-id-get-200](netctrl-network-link-id-get-200.html)
 - [netctrl-network-links-get-200](netctrl-network-links-get-200.html)
