@@ -69,3 +69,5 @@ Once AMWA has approved a Specification, its documentation and API links will be 
 ## Releases/Tags
 
 [v1.0](tags/v1.0/)
+
+[v1.0.1](tags/v1.0.1/)

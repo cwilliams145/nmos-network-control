@@ -2,8 +2,6 @@
 
 # {{ site.github.project_tagline }}
 
-## Releases/Tags
+## APIs for release/tag v1.0.1
 
-[v1.0](v1.0/)
-
-[v1.0.1](v1.0.1/)
+- [NetworkControlAPI](NetworkControlAPI.html)

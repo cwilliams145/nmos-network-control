@@ -1,0 +1,189 @@
+---
+layout: default
+title: Schema network-device.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Schema network-device.json</h2>
+<p>
+    <a href="../../schemas/with-refs/network-device.html">Show original (referenced schemas with $ref)</a>
+</p>
+<div id="json-render">
+<script type="text/javascript" src="codemirror/lib/codemirror.js"></script>
+<link rel="stylesheet" href="codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="codemirror/addon/fold/foldgutter.css">
+<script src="codemirror/mode/javascript/javascript.js"></script>
+<script src="codemirror/addon/fold/foldcode.js"></script>
+<script src="codemirror/addon/fold/foldgutter.js"></script>
+<script src="codemirror/addon/fold/brace-fold.js"></script>
+<script src="codemirror/addon/fold/indent-fold.js"></script>
+
+<style>
+  .CodeMirror {
+    border-top: 1px solid black; 
+    border-bottom: 1px solid black;
+    height: 500px;
+  }
+</style>
+
+<textarea id="mytextarea">
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "Describes a network device or switch.",
+    "properties": {
+        "chassis_id": {
+            "anyOf": [
+                {
+                    "description": "When the Chassis ID is a MAC address, use this format.",
+                    "pattern": "^([0-9a-f]{2}-){5}([0-9a-f]{2})$",
+                    "type": "string"
+                },
+                {
+                    "description": "When the Chassis ID is anything other than a MAC address, a freeform string may be used.",
+                    "pattern": "^.+$",
+                    "type": "string"
+                }
+            ],
+            "description": "A persistent identifier of the network device, often the MAC address. Where LLDP is implemented on the network device interfaces, the LLDP Chassis ID should match this value."
+        },
+        "id": {
+            "description": "Globally unique identifier for the network device",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+            "type": "string"
+        },
+        "interfaces": {
+            "items": {
+                "properties": {
+                    "admin_status": {
+                        "description": "The administrative status of the interface.",
+                        "enum": [
+                            "up",
+                            "down"
+                        ]
+                    },
+                    "mtu": {
+                        "description": "Optional. The MTU of the interface.",
+                        "type": "integer"
+                    },
+                    "oper_status": {
+                        "description": "The operational status of the interface.",
+                        "enum": [
+                            "up",
+                            "down"
+                        ]
+                    },
+                    "port_id": {
+                        "anyOf": [
+                            {
+                                "description": "When the Port ID is a MAC address, use this format.",
+                                "pattern": "^([0-9a-f]{2}-){5}([0-9a-f]{2})$",
+                                "type": "string"
+                            },
+                            {
+                                "description": "When the Port ID is anything other than a MAC address, a freeform string may be used.",
+                                "pattern": "^.+$",
+                                "type": "string"
+                            }
+                        ],
+                        "description": "A persistent identifier of the interface on the network device, often the ifAlias. Where LLDP is implemented on the network device interfaces, the LLDP Port ID should match this value."
+                    },
+                    "speed": {
+                        "description": "The reported active speed of the interface.",
+                        "enum": [
+                            "100Mbit/s",
+                            "1Gbit/s",
+                            "10Gbit/s",
+                            "25Gbit/s",
+                            "40Gbit/s",
+                            "50Gbit/s",
+                            "100Gbit/s",
+                            "200Gbit/s",
+                            "400Gbit/s"
+                        ]
+                    }
+                },
+                "required": [
+                    "port_id",
+                    "admin_status",
+                    "oper_status",
+                    "speed"
+                ],
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "label": {
+            "description": "Optional. Freeform string label for the network device",
+            "type": "string"
+        },
+        "mgmt_ip": {
+            "anyOf": [
+                {
+                    "format": "ipv4"
+                },
+                {
+                    "format": "ipv6"
+                }
+            ],
+            "description": "The management IP address of the network device.",
+            "type": "string"
+        },
+        "mtu": {
+            "description": "The device level MTU. If interface MTU is not present this will be used as the default value.",
+            "type": "integer"
+        }
+    },
+    "required": [
+        "id",
+        "chassis_id",
+        "mgmt_ip",
+        "mtu",
+        "interfaces"
+    ],
+    "type": "object"
+}
+</textarea>
+<script>
+window.editor_json = CodeMirror.fromTextArea(mytextarea, {
+    mode: {
+        name: "javascript",
+        json: true
+    },
+    readOnly: true,
+    lineNumbers: false,
+    lineWrapping: true,
+    extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }},
+    foldGutter: true,
+    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+    foldOptions: {
+      widget: (from, to) => {
+        var count = undefined;
+
+        // Get open / close token
+        var startToken = '{', endToken = '}';
+        var prevLine = window.editor_json.getLine(from.line);
+        if (prevLine.lastIndexOf('[') > prevLine.lastIndexOf('{')) {
+          startToken = '[', endToken = ']';
+        }
+
+        // Get json content
+        var internal = window.editor_json.getRange(from, to);
+        var toParse = startToken + internal + endToken;
+
+        // Get key count
+        try {
+          var parsed = JSON.parse(toParse);
+          count = Object.keys(parsed).length;
+        } catch(e) { }
+
+        return count ? `\u21A4${count}\u21A6` : '\u2194';
+        }
+      }
+    }
+  );
+editor_json.
+editor_json.foldCode(CodeMirror.Pos(3, 0));
+</script>
+</div>
+</html>
