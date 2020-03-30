@@ -44,22 +44,28 @@ The documentation and API links immediately below, and the links in the page hea
 
 Once AMWA has approved a Specification, its documentation and API links will be for the _most recent approved release_ (which may be earlier than what is shown by the default branch on the GitHub repo).
 
-## Documentation for release/tag v1.0
+## Documentation for release/tag v1.0.1
 
-- [Overview](tags/v1.0/docs/1.0._Overview.md)
-- [Endpoint](tags/v1.0/docs/2.0._Endpoint.md)
-- [Network Flow](tags/v1.0/docs/3.0._Network_Flow.md)
-- [Network Device](tags/v1.0/docs/4.0._Network_Device.md)
-- [Network Links](tags/v1.0/docs/5.0._Network_Links.md)
+- [Overview](tags/v1.0.1/docs/1.0._Overview.md)
+- [APIs](tags/v1.0.1/docs/2.0._APIs.md)
+  - [Client Side Implementation](tags/v1.0.1/docs/2.1._APIs_-_Client_Side_Implementation.md)
+  - [Server Side Implementation](tags/v1.0.1/docs/2.2._APIs_-_Server_Side_Implementation.md)
+  - [Query Parameters](tags/v1.0.1/docs/2.3._APIs_-_Query_Parameters.md)
+  - [Discovery](tags/v1.0.1/docs/2.4._APIs_-_Discovery.md)
+- [Data Model](tags/v1.0.1/docs/3.0._Data_Model.md)
+  - [Endpoint](tags/v1.0.1/docs/3.1._Data_Model_-_Endpoint.md)
+  - [Network Flow](tags/v1.0.1/docs/3.2._Data_Model_-_Network_Flow.md)
+  - [Network Device](tags/v1.0.1/docs/3.3._Data_Model_-_Network_Device.md)
+  - [Network Link](tags/v1.0.1/docs/3.4._Data_Model_-_Network_Link.md)
 
-## APIs for release/tag v1.0
+## APIs for release/tag v1.0.1
 
-- [NetworkControlAPI](tags/v1.0/APIs/NetworkControlAPI.html)
+- [NetworkControlAPI](tags/v1.0.1/APIs/NetworkControlAPI.html)
 
-### [JSON Schemas](tags/v1.0/APIs/schemas/)
+### [JSON Schemas](tags/v1.0.1/APIs/schemas/)
 
 
-### [Examples](tags/v1.0/examples/)
+### [Examples](tags/v1.0.1/examples/)
 
 
 ## Branches
