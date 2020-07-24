@@ -2,8 +2,6 @@
 
 # {{ site.github.project_tagline }}
 
-## Branches
+## APIs for branch v1.1-dev
 
-[v1.0.x](v1.0.x/)
-
-[v1.1-dev](v1.1-dev/)
+- [NetworkControlAPI](NetworkControlAPI.html)

@@ -1,0 +1,113 @@
+---
+layout: default
+title: Example netctrl-network-flows-get-200.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Example netctrl-network-flows-get-200.json</h2>
+<div id="json-render">
+<script type="text/javascript" src="codemirror/lib/codemirror.js"></script>
+<link rel="stylesheet" href="codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="codemirror/addon/fold/foldgutter.css">
+<script src="codemirror/mode/javascript/javascript.js"></script>
+<script src="codemirror/addon/fold/foldcode.js"></script>
+<script src="codemirror/addon/fold/foldgutter.js"></script>
+<script src="codemirror/addon/fold/brace-fold.js"></script>
+<script src="codemirror/addon/fold/indent-fold.js"></script>
+
+<style>
+  .CodeMirror {
+    border-top: 1px solid black; 
+    border-bottom: 1px solid black;
+    height: 500px;
+  }
+</style>
+
+<textarea id="mytextarea">
+[
+  {
+    "id": "af789265-3786-4e68-ac55-c473f32e6b61",
+    "multicast_address": "226.8.1.1",
+    "sender_endpoint_id": "e576574b-3b29-4f44-bb0e-784008ee26fb",
+    "receiver_endpoint_ids": [
+      "92ecbc58-2f65-4f98-a426-6c479e0698cd",
+      "600be553-0384-4405-97f9-7f4abb29051d"
+    ],
+    "bandwidth": "4Gbit/s",
+    "profile": "SMPTE-2110-21-wide",
+    "forward_flow": true,
+    "dscp": "AF12",
+    "label": "Broadcast Video"
+  },
+  {
+    "id": "d2439cef-59bc-456d-8791-fc37b8e82691",
+    "multicast_address": "226.1.1.16",
+    "sender_endpoint_id": "20aece97-c2b8-4a6c-a451-34ad86aae367",
+    "receiver_endpoint_ids": [
+    ],
+    "bandwidth": "2Gbit/s",
+    "profile": "SMPTE-2110-21-narrow",
+    "forward_flow": false,
+    "dscp": "AF12",
+    "label": "Staged broadcast video"
+  },
+  {
+    "id": "c519def6-2e4c-4c7f-91b1-4cdbcbe60e8c",
+    "multicast_address": "226.8.1.2",
+    "sender_endpoint_id": "e576574b-3b29-4f44-bb0e-784008ee26fb",
+    "receiver_endpoint_ids": [
+      "92ecbc58-2f65-4f98-a426-6c479e0698cd",
+      "600be553-0384-4405-97f9-7f4abb29051d"
+    ],
+    "bandwidth": "400Mbit/s",
+    "profile": "constant-rate",
+    "forward_flow": true,
+    "dscp": "AF12",
+    "label": "Audio stream accompanying video stream"
+  }
+]
+</textarea>
+<script>
+window.editor_json = CodeMirror.fromTextArea(mytextarea, {
+    mode: {
+        name: "javascript",
+        json: true
+    },
+    readOnly: true,
+    lineNumbers: true,
+    lineWrapping: true,
+    extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }},
+    foldGutter: true,
+    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+    foldOptions: {
+      widget: (from, to) => {
+        var count = undefined;
+
+        // Get open / close token
+        var startToken = '{', endToken = '}';
+        var prevLine = window.editor_json.getLine(from.line);
+        if (prevLine.lastIndexOf('[') > prevLine.lastIndexOf('{')) {
+          startToken = '[', endToken = ']';
+        }
+
+        // Get json content
+        var internal = window.editor_json.getRange(from, to);
+        var toParse = startToken + internal + endToken;
+
+        // Get key count
+        try {
+          var parsed = JSON.parse(toParse);
+          count = Object.keys(parsed).length;
+        } catch(e) { }
+
+        return count ? `\u21A4${count}\u21A6` : '\u2194';
+        }
+      }
+    }
+  );
+editor_json.
+editor_json.foldCode(CodeMirror.Pos(3, 0));
+</script>
+</div>
+</html>

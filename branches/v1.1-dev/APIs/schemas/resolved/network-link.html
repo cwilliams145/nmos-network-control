@@ -1,0 +1,132 @@
+---
+layout: default
+title: Schema network-link.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Schema network-link.json</h2>
+<p>
+    <a href="../../schemas/with-refs/network-link.html">Show original (referenced schemas with $ref)</a>
+</p>
+<div id="json-render">
+<script type="text/javascript" src="codemirror/lib/codemirror.js"></script>
+<link rel="stylesheet" href="codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="codemirror/addon/fold/foldgutter.css">
+<script src="codemirror/mode/javascript/javascript.js"></script>
+<script src="codemirror/addon/fold/foldcode.js"></script>
+<script src="codemirror/addon/fold/foldgutter.js"></script>
+<script src="codemirror/addon/fold/brace-fold.js"></script>
+<script src="codemirror/addon/fold/indent-fold.js"></script>
+
+<style>
+  .CodeMirror {
+    border-top: 1px solid black; 
+    border-bottom: 1px solid black;
+    height: 500px;
+  }
+</style>
+
+<textarea id="mytextarea">
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "Describes a network link. A network link consists of two peers. Each peer in the link must be a network device, links between network devices and endpoints are not represented. Links are always bidirectional. That is, the order of the peers in this entity carries no special meaning.",
+    "properties": {
+        "id": {
+            "description": "Globally unique identifier for the network link",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+            "type": "string"
+        },
+        "peers": {
+            "description": "List of peers in a link. Each peer is a network device (switch). There must be exactly two peers in the list.",
+            "items": {
+                "properties": {
+                    "device_id": {
+                        "description": "Globally unique identifier of a network device.",
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+                        "type": "string"
+                    },
+                    "port_id": {
+                        "anyOf": [
+                            {
+                                "description": "When the Port ID is a MAC address, use this format.",
+                                "pattern": "^([0-9a-f]{2}-){5}([0-9a-f]{2})$",
+                                "type": "string"
+                            },
+                            {
+                                "description": "When the Port ID is anything other than a MAC address, a freeform string may be used.",
+                                "pattern": "^.+$",
+                                "type": "string"
+                            }
+                        ],
+                        "description": "Matches the port_id of the interface of the network device to which the link is connected."
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "port_id"
+                ],
+                "type": "object"
+            },
+            "maxItems": 2,
+            "minItems": 2,
+            "type": "array",
+            "uniqueItems": true
+        },
+        "speed": {
+            "description": "Speed of the link, formatted as a number followed by kbit/s, Mbit/s, Gbit/s. NB: Values should be formatted with no fraction component if possible, using the largest unit that allows that.",
+            "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]+)?[kMG]bit\\/s$",
+            "type": "string"
+        }
+    },
+    "required": [
+        "id",
+        "peers",
+        "speed"
+    ],
+    "type": "object"
+}
+</textarea>
+<script>
+window.editor_json = CodeMirror.fromTextArea(mytextarea, {
+    mode: {
+        name: "javascript",
+        json: true
+    },
+    readOnly: true,
+    lineNumbers: false,
+    lineWrapping: true,
+    extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }},
+    foldGutter: true,
+    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+    foldOptions: {
+      widget: (from, to) => {
+        var count = undefined;
+
+        // Get open / close token
+        var startToken = '{', endToken = '}';
+        var prevLine = window.editor_json.getLine(from.line);
+        if (prevLine.lastIndexOf('[') > prevLine.lastIndexOf('{')) {
+          startToken = '[', endToken = ']';
+        }
+
+        // Get json content
+        var internal = window.editor_json.getRange(from, to);
+        var toParse = startToken + internal + endToken;
+
+        // Get key count
+        try {
+          var parsed = JSON.parse(toParse);
+          count = Object.keys(parsed).length;
+        } catch(e) { }
+
+        return count ? `\u21A4${count}\u21A6` : '\u2194';
+        }
+      }
+    }
+  );
+editor_json.
+editor_json.foldCode(CodeMirror.Pos(3, 0));
+</script>
+</div>
+</html>
