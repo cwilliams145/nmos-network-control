@@ -16,6 +16,7 @@
   - [Network Flow](docs/3.2._Data_Model_-_Network_Flow.md)
   - [Network Device](docs/3.3._Data_Model_-_Network_Device.md)
   - [Network Link](docs/3.4._Data_Model_-_Network_Link.md)
+  - [Network Address Translation](docs/3.5._Data_Model_-_Network_Address_Translation.md)
 
 ## APIs for branch v1.1-dev
 

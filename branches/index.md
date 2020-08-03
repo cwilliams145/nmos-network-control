@@ -6,4 +6,6 @@
 
 [v1.0.x](v1.0.x/)
 
+[v1.0.x-backport-v1.1-dev](v1.0.x-backport-v1.1-dev/)
+
 [v1.1-dev](v1.1-dev/)
