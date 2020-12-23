@@ -4,7 +4,7 @@
 
 | Repository | Default Branch | Lint (default) | Render (all) |
 | --- | --- | --- | --- |
-| [nmos-network-control](https://github.com/AMWA-TV/nmos-network-control) | v1.0.x | <a href="https://travis-ci.com/AMWA-TV/nmos-network-control?branch=v1.0.x"><img src="https://travis-ci.com/AMWA-TV/nmos-network-control.svg?branch=v1.0.x" width="100"/></a> | <a href="https://travis-ci.com/AMWA-TV/nmos-network-control?branch=gh-pages"><img src="https://travis-ci.com/AMWA-TV/nmos-network-control.svg?branch=gh-pages" width="100"/></a> |
+| [nmos-network-control](https://github.com/AMWA-TV/nmos-network-control) | v1.0.x | [![Lint Status](https://github.com/AMWA-TV/nmos-network-control/workflows/Lint/badge.svg)](https://github.com/AMWA-TV/nmos-network-control/actions?query=workflow%3ALint) | [![Render Status](https://github.com/AMWA-TV/nmos-network-control/workflows/Render/badge.svg)](https://github.com/AMWA-TV/nmos-network-control/actions?query=workflow%3ARender) |
 
 
 ---

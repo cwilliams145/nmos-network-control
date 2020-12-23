@@ -4,19 +4,19 @@
 
 ## JSON Schemas for branch v1.1-dev
 
-- [endpoint](with-refs/endpoint.html) [(flattened)](resolved/endpoint.html)
 - [endpoint-patch](with-refs/endpoint-patch.html) [(flattened)](resolved/endpoint-patch.html)
+- [endpoint](with-refs/endpoint.html) [(flattened)](resolved/endpoint.html)
 - [endpoints](with-refs/endpoints.html) [(flattened)](resolved/endpoints.html)
 - [error](with-refs/error.html) [(flattened)](resolved/error.html)
 - [netctrl-base](with-refs/netctrl-base.html) [(flattened)](resolved/netctrl-base.html)
-- [network-address-translation](with-refs/network-address-translation.html) [(flattened)](resolved/network-address-translation.html)
 - [network-address-translation-patch](with-refs/network-address-translation-patch.html) [(flattened)](resolved/network-address-translation-patch.html)
-- [network-address-translations](with-refs/network-address-translations.html) [(flattened)](resolved/network-address-translations.html)
 - [network-address-translation-tuple](with-refs/network-address-translation-tuple.html) [(flattened)](resolved/network-address-translation-tuple.html)
+- [network-address-translation](with-refs/network-address-translation.html) [(flattened)](resolved/network-address-translation.html)
+- [network-address-translations](with-refs/network-address-translations.html) [(flattened)](resolved/network-address-translations.html)
 - [network-device](with-refs/network-device.html) [(flattened)](resolved/network-device.html)
 - [network-devices](with-refs/network-devices.html) [(flattened)](resolved/network-devices.html)
-- [network-flow](with-refs/network-flow.html) [(flattened)](resolved/network-flow.html)
 - [network-flow-patch](with-refs/network-flow-patch.html) [(flattened)](resolved/network-flow-patch.html)
+- [network-flow](with-refs/network-flow.html) [(flattened)](resolved/network-flow.html)
 - [network-flows](with-refs/network-flows.html) [(flattened)](resolved/network-flows.html)
 - [network-link](with-refs/network-link.html) [(flattened)](resolved/network-link.html)
 - [network-links](with-refs/network-links.html) [(flattened)](resolved/network-links.html)
